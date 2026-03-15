@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PriSYS Solutions — Software en Argentina</title>
+  <meta name="description" content="Desarrollo de software a medida en Corrientes. Creamos sistemas para controlar ventas, stock y administrar negocios. Automatización de procesos y digitalización para empresas en Argentina." />
+  <meta name="keywords" content="sistema para controlar ventas, programa para negocio, software para controlar stock, sistema para mi empresa, automatización de procesos, sistema de gestión empresarial, digitalización de empresas, software Corrientes, crear sistema para empresa, software para gimnasio, software para estética, software para restaurante" />
+  <link rel="canonical" href="https://prisys.solutions/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://prisys.solutions/" />
+  <meta property="og:title" content="PriSYS Solutions — Software de Gestión y Automatización" />
+  <meta property="og:description" content="Transformamos tu negocio con sistemas de gestión a medida. Control de stock, ventas y automatización en Corrientes, Argentina." />
+  <meta property="og:image" content="https://prisys.solutions/Prisys_logo.jpg" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://prisys.solutions/" />
+  <meta property="twitter:title" content="PriSYS Solutions — Software de Gestión y Automatización" />
+  <meta property="twitter:description" content="Transformamos tu negocio con sistemas de gestión a medida. Control de stock, ventas y automatización en Corrientes, Argentina." />
+  <meta property="twitter:image" content="https://prisys.solutions/Prisys_logo.jpg" />
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PriSYS Solutions",
+    "url": "https://prisys.solutions/",
+    "logo": "https://prisys.solutions/Prisys_logo.jpg",
+    "description": "Desarrollo de software a medida, sistemas de gestión y automatización de procesos en Corrientes, Argentina.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Corrientes",
+      "addressCountry": "AR"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+54 373 547-5716",
+      "contactType": "sales",
+      "email": "prisys.solutions@gmail.com"
+    }
+  }
+  </script>
+</head>
+<body>
+  
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+  
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="Prisys_logo.jpg" alt="PriSYS Logo" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+  
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+      <div class="hero-orb orb3"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>Consultoría de Software · Argentina
+      </div>
+      <h1 class="hero-title reveal delay-1">          
+        Desarrollo de<br>                             
+<span class="hero-title-accent">software</span> a medida<br> para empresas</h1> 
+      <p class="hero-sub reveal delay-2">
+        Creamos sistemas de gestión, aplicaciones web y soluciones tecnológicas
+que optimizan procesos y hacen crecer tu negocio.
+      </p>
+      <div class="hero-actions reveal delay-3">
+        <a href="#contacto" class="btn-primary">Hablemos de tu proyecto</a>
+        <a href="#servicios" class="btn-ghost">Ver servicios <span class="arrow">→</span></a>
+      </div>
+      <div class="hero-stats reveal delay-4">
+        <div class="stat">
+          <span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span>
+          <p>Proyectos entregados</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="5">0</span><span class="stat-plus">+</span>
+          <p>Años de experiencia</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num " data-target="25">0</span><span class="stat-plus">+</span>
+          <p>Clientes activos</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal delay-2">
+      <div class="code-card">
+        <div class="code-card-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="code-title">prisys.config.ts</span>
+        </div>
+        <pre class="code-body"><code><span class="kw">const</span> <span class="fn">PriSYS</span> = {
+  <span class="key">mission</span>: <span class="str">"Digital Transformation"</span>,
+  <span class="key">stack</span>: [<span class="str">"React"</span>, <span class="str">"Node"</span>, <span class="str">"Cloud"</span>],
+  <span class="key">approach</span>: <span class="str">"Agile + Scalable"</span>,
+  <span class="key">clients</span>: <span class="num">45</span>,
+  <span class="key">deliver</span>: <span class="fn">() =></span> <span class="str">"Excellence"</span>
+}</code></pre>
+        <div class="code-pulse">
+          <span class="pulse-dot"></span> Sistema activo
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+  
+  <!-- SERVICIOS -->
+  <section class="section services-modern" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal">Nuestros Servicios</span>
+        <h2 class="section-title reveal delay-1">Soluciones diseñadas para<br><em>el éxito de tu negocio</em></h2>
+      </div>
+      <div class="services-modern-grid">
+        <!-- Card 1 -->
+        <div class="service-modern-card reveal delay-1">
+          <div class="service-bg-number">01</div>
+          <div class="service-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <span class="service-category">VISUAL UX / UI</span>
+          <h3 class="service-title">DISEÑO DE EXPERIENCIA</h3>
+          <p class="service-desc">Interfaces intuitivas diseñadas para mejorar la navegación.</p>
+        </div>
+        
+        <!-- Card 2 (Highlighted) -->
+        <div class="service-modern-card featured reveal delay-2">
+          <div class="service-bg-number">02</div>
+          <div class="service-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span class="service-category">SOFTWARE</span>
+          <h3 class="service-title">DESARROLLO ROBUSTO</h3>
+          <p class="service-desc">Arquitecturas escalables y seguras diseñadas para aplicaciones de alto rendimiento.</p>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="service-modern-card reveal delay-3">
+          <div class="service-bg-number">03</div>
+          <div class="service-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <span class="service-category">MANTENIMIENTO</span>
+          <h3 class="service-title">SOPORTE EVOLUTIVO</h3>
+          <p class="service-desc">Acompañamiento continuo con mantenimiento y mejoras estratégicas constantes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- NOSOTROS -->
+  <section class="section about" id="nosotros">
+    <div class="about-bg"></div>
+    <div class="container about-inner">
+      <div class="about-left reveal">
+        <span class="section-tag">Sobre PriSYS</span>
+        <h2 class="section-title">Somos el equipo<br>que tu empresa<br><em>necesita</em></h2>
+        <p>PriSYS Solutions es una consultora de software con sede en Argentina, especializada en acompañar a empresas en su transformación digital. Trabajamos con metodologías ágiles, equipos comprometidos y una visión centrada en resultados reales.</p>
+        <p>Nuestro diferencial no es solo el código que escribimos — es la forma en que entendemos tu negocio y lo convertimos en soluciones que funcionan.</p>
+        <a href="#contacto" class="btn-primary">Conocer al equipo</a>
+      </div>
+      <div class="about-right reveal delay-2">
+        <div class="about-card card-1">
+          <div class="about-card-icon">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>Orientados a resultados</h4>
+          <p>Cada línea de código tiene un propósito de negocio claro.</p>
+        </div>
+        <div class="about-card card-2">
+          <div class="about-card-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>Entrega continua</h4>
+          <p>Ciclos cortos, feedback rápido y valor desde el primer sprint.</p>
+        </div>
+        <div class="about-card card-3">
+          <div class="about-card-icon">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Seguridad y escalabilidad</h4>
+          <p>Arquitecturas pensadas para crecer sin comprometer la estabilidad.</p>
+        </div>
+        <div class="about-card card-4">
+          <div class="about-card-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Equipo dedicado</h4>
+          <p>Un equipo técnico que entiende tu contexto y es parte de tu proyecto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PROYECTOS -->
+  <section class="section projects" id="proyectos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal">Proyectos</span>
+        <h2 class="section-title reveal delay-1">Trabajo que<br><em>habla por sí solo</em></h2>
+      </div>
+      <div class="projects-grid">
+        <!-- ERP VENTAS -->
+        <div class="project-card reveal delay-1" data-project="erp-ventas">
+          <div class="project-image-container">
+            <img src="proyectos/ERP VENTAS/image1.PNG" alt="ERP Ventas" class="project-main-img">
+            <div class="project-overlay">
+              <span class="project-tag">SISTEMA DE GESTIÓN</span>
+              <h3>ERP de Ventas Moderno</h3>
+              <p>Control total de stock, facturación y reportes en tiempo real.</p>
+              <button class="project-btn">Ver Galería →</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- CARNICERÍA SISTEMA -->
+        <div class="project-card reveal delay-2" data-project="carniceria">
+          <div class="project-image-container">
+            <img src="proyectos/carnicera sistema/image1.png" alt="Sistema Carnicería" class="project-main-img">
+            <div class="project-overlay">
+              <span class="project-tag">SOFTWARE A MEDIDA</span>
+              <h3>Gestión de Carnicerías</h3>
+              <p>Optimización de pesaje, ventas y trazabilidad de productos cárnicos.</p>
+              <button class="project-btn">Ver Galería →</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ECM CHIP -->
+        <div class="project-card reveal delay-3" data-project="ecm-chip">
+          <div class="project-image-container">
+            <img src="proyectos/ecm chip/image1.png" alt="ECM Chip" class="project-main-img">
+            <div class="project-overlay">
+              <span class="project-tag">SISTEMA TÉCNICO</span>
+              <h3>ECM Chip Reprogramación</h3>
+              <p>Plataforma para gestión de servicios de reprogramación de ECUs.</p>
+              <button class="project-btn">Ver Galería →</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- MD ESTÉTICA -->
+        <div class="project-card reveal delay-1" data-project="md-estetica">
+          <div class="project-image-container">
+            <img src="proyectos/MD ESTETICA/image1.png" alt="MD Estética" class="project-main-img">
+            <div class="project-overlay">
+              <span class="project-tag">APP DE GESTIÓN</span>
+              <h3>MD Estética & Salud</h3>
+              <p>Turnero inteligente y ficha clínica digital para centros de estética.</p>
+              <button class="project-btn">Ver Galería →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- MODAL DE PROYECTOS -->
+  <div class="project-modal" id="projectModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Cerrar">&times;</button>
+      <div class="modal-body">
+        <div class="modal-info">
+          <h2 id="modalTitle">Proyecto</h2>
+          <p id="modalDesc">Descripción</p>
+        </div>
+        <div class="modal-gallery" id="modalGallery">
+          <!-- Images will be loaded here via JS -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn-primary modal-close-btn">Cerrar Galería</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CLIENTES -->
+  <section class="section clients" id="clientes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag reveal">Confianza</span>
+        <h2 class="section-title reveal delay-1"> Algunas de las empresas que<br><em>confían en nosotros</em></h2>
+      </div>
+      <div class="clients-carousel-wrapper reveal delay-2">
+        <div class="clients-track">
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/angiru-logo.jpg" alt="Angiru Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/carnes-villa-angela-logo.jpg" alt="Carnes Villa Angela Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/ecm-chip-logo.jpg" alt="ECM Chip Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/md-estetica-logo.jpg" alt="MD Estetica Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/oliveras-logo.jpg" alt="Oliveras Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/optica-villa-angela-logo.jpg" alt="Optica Villa Angela Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/sg-insumos-dentales-logo.jpg" alt="SG Insumos Dentales Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/umbral-gym-logo.jpg" alt="Umbral Gym Logo" class="client-logo" />
+            </div>
+          </div>
+          <!-- Duplicated for infinite scroll -->
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/angiru-logo.jpg" alt="Angiru Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/carnes-villa-angela-logo.jpg" alt="Carnes Villa Angela Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/ecm-chip-logo.jpg" alt="ECM Chip Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/md-estetica-logo.jpg" alt="MD Estetica Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/oliveras-logo.jpg" alt="Oliveras Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/optica-villa-angela-logo.jpg" alt="Optica Villa Angela Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/sg-insumos-dentales-logo.jpg" alt="SG Insumos Dentales Logo" class="client-logo" />
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="client-logo-wrapper">
+              <img src="logo-clientes/umbral-gym-logo.jpg" alt="Umbral Gym Logo" class="client-logo" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="cta-band-bg"></div>
+    <div class="container cta-band-inner reveal">
+      <div class="cta-band-text">
+        <h2>¿Tenés un proyecto en mente?</h2>
+        <p>Hablemos. La primera consulta es sin cargo.</p>
+      </div>
+      <a href="#contacto" class="btn-white">Empezar ahora →</a>
+    </div>
+  </section>
+  
+  <!-- CONTACTO -->
+  <section class="section contact" id="contacto">
+    <div class="container contact-inner">
+      <div class="contact-left reveal">
+        <span class="section-tag">Contacto</span>
+        <h2 class="section-title">Escribinos.<br><em>Respondemos rápido.</em></h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Corrientes, Argentina</strong>
+              <span>Atendemos clientes en todo el país</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div>
+              <strong>prisys.solutions@gmail.com</strong>
+              <span>Respondemos en menos de 24hs</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="currentColor"/>
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.126 1.535 5.862L.057 23.486a.5.5 0 00.612.612l5.624-1.478A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.681-.524-5.21-1.438l-.374-.22-3.876 1.018 1.018-3.876-.22-.374A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div>
+              <strong>+54 373 547-5716</strong>
+              <span>Lunes a Viernes · 9:00 - 18:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right reveal delay-2">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label>Empresa</label>
+              <input type="text" placeholder="Tu empresa" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="tu@empresa.com" required />
+          </div>
+          <div class="form-group">
+            <label>¿En qué podemos ayudarte?</label>
+            <textarea rows="4" placeholder="Contanos sobre tu proyecto o consulta..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit">Enviar mensaje →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="Prisys_logo.jpg" alt="PriSYS" class="footer-logo" />
+        <p>Ingeniería de software de alto nivel.
+          Construimos el futuro digital de tu empresa.
+        </p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Servicios</h5>
+          <a href="#servicios">Desarrollo a Medida</a>
+          <a href="#servicios">Arquitectura Cloud</a>
+          <a href="#servicios">Consultoría Tecnológica</a>
+          <a href="#servicios">QA & Testing</a>
+        </div>
+        <div class="footer-col">
+          <h5>Empresa</h5>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <div class="footer-col">
+          <h5>Seguinos</h5>
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+          <a href="https://www.instagram.com/prisys.solutions">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 PriSYS Solutions™. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  
+  <!-- WHATSAPP FLOTANTE -->
+  <a class="wa-float" href="https://wa.me/543735475716" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <div class="wa-tooltip">¡Hablemos por WhatsApp!</div>
+    <div class="wa-ripple"></div>
+    <svg class="wa-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#25D366"/>
+      <path d="M34.9 13.1C32.3 10.4 28.8 9 24.1 9c-9.1 0-16.5 7.4-16.5 16.5 0 2.9.8 5.7 2.2 8.2L7.5 40l6.6-1.7c2.4 1.3 5 2 7.8 2h.1c9.1 0 16.4-7.4 16.4-16.5 0-4.4-1.7-8.5-3.5-10.7zm-10.8 25.4h-.1c-2.5 0-5-.7-7.1-1.9l-.5-.3-5.2 1.4 1.4-5.1-.3-.5c-1.4-2.2-2.1-4.8-2.1-7.4 0-7.7 6.3-14 14-14 3.7 0 7.2 1.5 9.9 4.1 2.6 2.6 4.1 6.1 4.1 9.9-.1 7.8-6.3 13.8-14.1 13.8zm7.7-10.5c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.6-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5-.1-.7-.1-.2-.9-2.2-1.2-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.8 4.2 6.7 5.9.9.4 1.7.6 2.2.8.9.3 1.8.2 2.4.1.7-.1 2.4-1 2.7-1.9.3-.9.3-1.7.2-1.9-.1-.1-.4-.3-.8-.5z" fill="white"/>
+    </svg>
+  </a>
+  
+  <script src="scripts.js"></script>
+</body>
+</html>
