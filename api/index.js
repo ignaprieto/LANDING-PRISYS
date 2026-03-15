@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const { Resend } = require('resend');
 const cors = require('cors');
 
@@ -71,6 +72,14 @@ app.post('/api/send-email', async (req, res) => {
     console.error('Internal server error:', err);
     res.status(500).json({ error: 'Ocurrió un error inesperado al enviar el mensaje.' });
   }
+});
+
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, '../public')));
+
+// Catch-all route for any other request (SPA-like or just serving index.html)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // For local development
