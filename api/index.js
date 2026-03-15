@@ -4,15 +4,26 @@ const { Resend } = require('resend');
 const cors = require('cors');
 
 const app = express();
-const port = process.env.PORT || 3000;
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.use(cors());
 app.use(express.json());
 
-// Basic health check
+// Initialize Resend lazily to prevent crash if API key is missing during build/init
+let resend;
+const getResend = () => {
+  if (!resend) {
+    if (!process.env.RESEND_API_KEY) {
+      console.error('CRITICAL: RESEND_API_KEY is missing');
+      return null;
+    }
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+};
+
+// API Health Check
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ status: 'OK' });
+  res.status(200).json({ status: 'OK', env: process.env.NODE_ENV });
 });
 
 // Endpoint to send contact emails
@@ -23,10 +34,15 @@ app.post('/api/send-email', async (req, res) => {
     return res.status(400).json({ error: 'Faltan campos obligatorios (nombre, email o mensaje).' });
   }
 
+  const resendClient = getResend();
+  if (!resendClient) {
+    return res.status(500).json({ error: 'Error de configuración en el servidor (API Key).' });
+  }
+
   try {
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await resendClient.emails.send({
       from: 'PriSYS Solutions <onboarding@resend.dev>',
-      to: [process.env.COMPANY_EMAIL],
+      to: [process.env.COMPANY_EMAIL || 'prisys.solutions@gmail.com'],
       subject: `Nuevo mensaje de contacto: ${name}`,
       reply_to: email,
       html: `
@@ -57,11 +73,12 @@ app.post('/api/send-email', async (req, res) => {
   }
 });
 
-// Export app for Vercel
-module.exports = app;
-
+// For local development
 if (process.env.NODE_ENV !== 'production') {
+  const port = process.env.PORT || 3000;
   app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Server running on http://localhost:${port}`);
   });
 }
+
+module.exports = app;
