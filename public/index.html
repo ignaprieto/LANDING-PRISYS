@@ -22,7 +22,7 @@
   <meta property="twitter:description" content="Transformamos tu negocio con sistemas de gestión a medida. Control de stock, ventas y automatización en Corrientes, Argentina." />
   <meta property="twitter:image" content="https://prisys.solutions/Prisys_logo.jpg" />
   
-  <link rel="icon" type="image/x-icon" href="favicon.ico?v=1" />
+  <link rel="icon" type="image/x-icon" href="logo.ico" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="Prisys_logo.jpg" alt="PriSYS Logo" class="logo-img" />
+        <img src="logo.ico" alt="PriSYS Logo" class="logo-img" />
       </a>
       <ul class="nav-links">
         <li><a href="#servicios">Servicios</a></li>
@@ -82,13 +82,14 @@
         </button>
       </div>
     </div>
-    <div class="nav-mobile" id="navMobile">
-      <a href="#servicios">Servicios</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#contacto">Contacto</a>
-    </div>
   </nav>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="#servicios">Servicios</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+  </div>
   
   <!-- HERO -->
   <section class="hero" id="hero">
@@ -131,22 +132,14 @@ que optimizan procesos y hacen crecer tu negocio.
       </div>
     </div>
     <div class="hero-visual reveal delay-2">
-      <div class="code-card">
-        <div class="code-card-header">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <span class="code-title">prisys.config.ts</span>
-        </div>
-        <pre class="code-body"><code><span class="kw">const</span> <span class="fn">PriSYS</span> = {
-  <span class="key">mission</span>: <span class="str">"Digital Transformation"</span>,
-  <span class="key">stack</span>: [<span class="str">"React"</span>, <span class="str">"Node"</span>, <span class="str">"Cloud"</span>],
-  <span class="key">approach</span>: <span class="str">"Agile + Scalable"</span>,
-  <span class="key">clients</span>: <span class="num">45</span>,
-  <span class="key">deliver</span>: <span class="fn">() =></span> <span class="str">"Excellence"</span>
-}</code></pre>
-        <div class="code-pulse">
-          <span class="pulse-dot"></span> Sistema activo
+      <div class="logo-flip-card">
+        <div class="logo-flip-inner">
+          <div class="logo-flip-front">
+            <img src="logo.ico" alt="PriSYS Logo" class="hero-logo-icon" />
+          </div>
+          <div class="logo-flip-back">
+            <p>En PRISYS SOLUTIONS desarrollamos software que transforma procesos manuales en sistemas digitales eficientes. Ayudamos a las empresas a tener más control, ahorrar tiempo y tomar mejores decisiones con tecnología.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -317,8 +310,13 @@ que optimizan procesos y hacen crecer tu negocio.
           <h2 id="modalTitle">Proyecto</h2>
           <p id="modalDesc">Descripción</p>
         </div>
-        <div class="modal-gallery" id="modalGallery">
-          <!-- Images will be loaded here via JS -->
+        <div class="modal-gallery-container">
+          <button class="gallery-nav prev" aria-label="Anterior">&lsaquo;</button>
+          <div class="modal-gallery" id="modalGallery">
+            <!-- Images will be loaded here via JS -->
+          </div>
+          <button class="gallery-nav next" aria-label="Siguiente">&rsaquo;</button>
+          <div class="gallery-counter"><span id="currentImg">1</span> / <span id="totalImg">1</span></div>
         </div>
         <div class="modal-footer">
           <button class="btn-primary modal-close-btn">Cerrar Galería</button>
@@ -334,85 +332,85 @@ que optimizan procesos y hacen crecer tu negocio.
         <span class="section-tag reveal">Confianza</span>
         <h2 class="section-title reveal delay-1"> Algunas de las empresas que<br><em>confían en nosotros</em></h2>
       </div>
-      <div class="clients-carousel-wrapper reveal delay-2">
+      <div class="clients-carousel-wrapper">
         <div class="clients-track">
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #4CAF50;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/angiru-logo.jpg" alt="Angiru Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #E91E63;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/carnes-villa-angela-logo.jpg" alt="Carnes Villa Angela Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #2196F3;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/ecm-chip-logo.jpg" alt="ECM Chip Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #9C27B0;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/md-estetica-logo.jpg" alt="MD Estetica Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #8BC34A;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/oliveras-logo.jpg" alt="Oliveras Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #00BCD4;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/optica-villa-angela-logo.jpg" alt="Optica Villa Angela Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #009688;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/sg-insumos-dentales-logo.jpg" alt="SG Insumos Dentales Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #FFC107;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/umbral-gym-logo.jpg" alt="Umbral Gym Logo" class="client-logo" />
             </div>
           </div>
           <!-- Duplicated for infinite scroll -->
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #4CAF50;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/angiru-logo.jpg" alt="Angiru Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #E91E63;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/carnes-villa-angela-logo.jpg" alt="Carnes Villa Angela Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #2196F3;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/ecm-chip-logo.jpg" alt="ECM Chip Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #9C27B0;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/md-estetica-logo.jpg" alt="MD Estetica Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #8BC34A;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/oliveras-logo.jpg" alt="Oliveras Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #00BCD4;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/optica-villa-angela-logo.jpg" alt="Optica Villa Angela Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #009688;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/sg-insumos-dentales-logo.jpg" alt="SG Insumos Dentales Logo" class="client-logo" />
             </div>
           </div>
-          <div class="client-card">
+          <div class="client-card" style="--card-color: #FFC107;">
             <div class="client-logo-wrapper">
               <img src="logo-clientes/umbral-gym-logo.jpg" alt="Umbral Gym Logo" class="client-logo" />
             </div>
@@ -507,7 +505,7 @@ que optimizan procesos y hacen crecer tu negocio.
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="Prisys_logo.jpg" alt="PriSYS" class="footer-logo" />
+        <img src="logo.ico" alt="PriSYS" class="footer-logo" />
         <p>Ingeniería de software de alto nivel.
           Construimos el futuro digital de tu empresa.
         </p>

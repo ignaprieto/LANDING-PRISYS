@@ -304,7 +304,10 @@ document.addEventListener('DOMContentLoaded', () => {
         'proyectos/ecm chip/image3.PNG',
         'proyectos/ecm chip/image4.PNG',
         'proyectos/ecm chip/image5.PNG',
-        'proyectos/ecm chip/image6.PNG'
+        'proyectos/ecm chip/image6.PNG',
+        'proyectos/ecm chip/image7.PNG',
+        'proyectos/ecm chip/image8.PNG',
+        'proyectos/ecm chip/image9.png',
       ]
     },
     'md-estetica': {
@@ -327,6 +330,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalClose = modal.querySelector('.modal-close');
   const modalCloseBtn = modal.querySelector('.modal-close-btn');
   const modalOverlay = modal.querySelector('.modal-overlay');
+  
+  const galleryPrev = modal.querySelector('.gallery-nav.prev');
+  const galleryNext = modal.querySelector('.gallery-nav.next');
+  const currentImgSpan = document.getElementById('currentImg');
+  const totalImgSpan = document.getElementById('totalImg');
+
+  let currentImgIndex = 0;
+  let totalImages = 0;
+
+  const updateSlider = () => {
+    const offset = -currentImgIndex * 100;
+    modalGallery.style.transform = `translateX(${offset}%)`;
+    currentImgSpan.textContent = currentImgIndex + 1;
+    
+    // Reset zoom on slide change
+    modalGallery.querySelectorAll('img').forEach(img => img.classList.remove('zoomed'));
+  };
 
   const openModal = (id) => {
     const data = projectData[id];
@@ -335,19 +355,45 @@ document.addEventListener('DOMContentLoaded', () => {
     modalTitle.textContent = data.title;
     modalDesc.textContent = data.desc;
     modalGallery.innerHTML = '';
+    currentImgIndex = 0;
+    totalImages = data.images.length;
+    totalImgSpan.textContent = totalImages;
 
-    data.images.forEach(src => {
+    data.images.forEach((src, idx) => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
       const img = document.createElement('img');
       img.src = src;
-      img.alt = data.title;
+      img.alt = `${data.title} - ${idx + 1}`;
       img.loading = 'lazy';
-      modalGallery.appendChild(img);
+      
+      // Zoom functionality
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        img.classList.toggle('zoomed');
+      });
+
+      item.appendChild(img);
+      modalGallery.appendChild(item);
     });
 
+    updateSlider();
     modal.classList.add('open');
-    document.body.style.overflow = 'hidden'; // Prevent scroll
-    modal.querySelector('.modal-body').scrollTop = 0; // Reset scroll to top
+    document.body.style.overflow = 'hidden';
+    modal.querySelector('.modal-body').scrollTop = 0;
   };
+
+  galleryPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentImgIndex = (currentImgIndex - 1 + totalImages) % totalImages;
+    updateSlider();
+  });
+
+  galleryNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentImgIndex = (currentImgIndex + 1) % totalImages;
+    updateSlider();
+  });
 
   const closeModal = () => {
     modal.classList.remove('open');
