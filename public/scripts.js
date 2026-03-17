@@ -275,50 +275,50 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'ERP de Ventas Moderno',
       desc: 'Sistema integral de gestión de ventas, stock e inventario con reportes avanzados.',
       images: [
-        'proyectos/ERP VENTAS/image1.PNG',
-        'proyectos/ERP VENTAS/image2.PNG',
-        'proyectos/ERP VENTAS/image3.PNG',
-        'proyectos/ERP VENTAS/image4.PNG',
-        'proyectos/ERP VENTAS/image5.PNG'
+        'proyectos/ERP VENTAS/image1.webp',
+        'proyectos/ERP VENTAS/image2.webp',
+        'proyectos/ERP VENTAS/image3.webp',
+        'proyectos/ERP VENTAS/image4.webp',
+        'proyectos/ERP VENTAS/image5.webp'
       ]
     },
     'carniceria': {
       title: 'Gestión de Carnicerías',
       desc: 'Software especializado para el control de stock, pesaje y ventas en carnicerías.',
       images: [
-        'proyectos/carnicera sistema/image1.png',
-        'proyectos/carnicera sistema/image2.png',
-        'proyectos/carnicera sistema/image3.png',
-        'proyectos/carnicera sistema/image4.png',
-        'proyectos/carnicera sistema/image5.png',
-        'proyectos/carnicera sistema/image6.png',
-        'proyectos/carnicera sistema/image7.png'
+        'proyectos/carnicera sistema/image1.webp',
+        'proyectos/carnicera sistema/image2.webp',
+        'proyectos/carnicera sistema/image3.webp',
+        'proyectos/carnicera sistema/image4.webp',
+        'proyectos/carnicera sistema/image5.webp',
+        'proyectos/carnicera sistema/image6.webp',
+        'proyectos/carnicera sistema/image7.webp'
       ]
     },
     'ecm-chip': {
       title: 'ECM Chip Reprogramación',
       desc: 'Plataforma técnica para la gestión de servicios de reprogramación de ECUs y chips automotrices.',
       images: [
-        'proyectos/ecm chip/image1.png',
-        'proyectos/ecm chip/image2.PNG',
-        'proyectos/ecm chip/image3.PNG',
-        'proyectos/ecm chip/image4.PNG',
-        'proyectos/ecm chip/image5.PNG',
-        'proyectos/ecm chip/image6.PNG',
-        'proyectos/ecm chip/image7.PNG',
-        'proyectos/ecm chip/image8.PNG',
-        'proyectos/ecm chip/image9.png',
+        'proyectos/ecm chip/image1.webp',
+        'proyectos/ecm chip/image2.webp',
+        'proyectos/ecm chip/image3.webp',
+        'proyectos/ecm chip/image4.webp',
+        'proyectos/ecm chip/image5.webp',
+        'proyectos/ecm chip/image6.webp',
+        'proyectos/ecm chip/image7.webp',
+        'proyectos/ecm chip/image8.webp',
+        'proyectos/ecm chip/image9.webp',
       ]
     },
     'md-estetica': {
       title: 'MD Estética & Salud',
       desc: 'Sistema de turnos, historia clínica digital y gestión de pacientes para centros de estética.',
       images: [
-        'proyectos/MD ESTETICA/image1.png',
-        'proyectos/MD ESTETICA/image2.png',
-        'proyectos/MD ESTETICA/image3.png',
-        'proyectos/MD ESTETICA/image4.png',
-        'proyectos/MD ESTETICA/image5.png'
+        'proyectos/MD ESTETICA/image1.webp',
+        'proyectos/MD ESTETICA/image2.webp',
+        'proyectos/MD ESTETICA/image3.webp',
+        'proyectos/MD ESTETICA/image4.webp',
+        'proyectos/MD ESTETICA/image5.webp'
       ]
     }
   };

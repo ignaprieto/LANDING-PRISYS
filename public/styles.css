@@ -401,7 +401,7 @@ body.dark .nav-mobile {
 .hero {
   min-height: 100vh;
   display: flex; align-items: center;
-  padding: 8rem 2rem 5rem;
+  padding: 6rem 2rem 3rem;
   position: relative; overflow: hidden;
   background: var(--bg-dark-section);
   transition: background 0.4s var(--ease);
@@ -463,7 +463,7 @@ body.dark .nav-mobile {
   font-size: clamp(3rem, 6vw, 5rem);
   color: var(--white);
   line-height: 1.0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
 .hero-title-accent {
@@ -474,12 +474,12 @@ body.dark .nav-mobile {
   font-size: 1.1rem; line-height: 1.7;
   color: rgba(255,255,255,0.65);
   max-width: 480px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 .hero-actions {
   display: flex; align-items: center; gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
 }
 .hero-stats {
   display: flex; align-items: center; gap: 2rem;
@@ -1448,9 +1448,9 @@ body.dark .services, body.dark .contact { background: var(--bg-section-alt); }
   .hamburger { display: flex; }
   .theme-toggle { cursor: auto; }
 
-  .hero {
-    flex-direction: column; gap: 3rem;
-    padding: 7rem 1.5rem 4rem;
+.hero {
+    flex-direction: column; gap: 2rem; /* Reducimos el gap de 3rem a 2rem */
+    padding: 6rem 1.5rem 3rem; /* Reducimos el padding superior */
     text-align: center;
   }
   .hero-visual { padding-left: 0; }

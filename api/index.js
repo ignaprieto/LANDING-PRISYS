@@ -6,7 +6,17 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors());
+// 1. MEJORA DE SEGURIDAD: CORS configurado para tu nuevo dominio
+const corsOptions = {
+  origin: [
+    'https://prisys.com.ar', 
+    'https://www.prisys.com.ar', 
+    'http://localhost:3000' // Mantenemos localhost para cuando pruebes en tu compu
+  ],
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // Initialize Resend lazily to prevent crash if API key is missing during build/init
@@ -42,6 +52,8 @@ app.post('/api/send-email', async (req, res) => {
 
   try {
     const { data, error } = await resendClient.emails.send({
+      // 2. CORREO REMITENTE: 
+      // Cuando verifiques tu dominio en Resend, cambiá 'onboarding@resend.dev' por 'contacto@prisys.com.ar'
       from: 'PriSYS Solutions <onboarding@resend.dev>',
       to: [process.env.COMPANY_EMAIL || 'prisys.solutions@gmail.com'],
       subject: `Nuevo mensaje de contacto: ${name}`,
@@ -56,7 +68,7 @@ app.post('/api/send-email', async (req, res) => {
           <p><strong>Mensaje:</strong></p>
           <p style="white-space: pre-wrap; background: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #d0e8f5;">${message}</p>
           <footer style="margin-top: 30px; font-size: 12px; color: #5a7a99;">
-            Enviado automáticamente desde el formulario de PriSYS Solutions.
+            Enviado automáticamente desde el formulario de PriSYS Solutions (prisys.com.ar).
           </footer>
         </div>
       `,
