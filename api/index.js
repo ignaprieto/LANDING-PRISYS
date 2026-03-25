@@ -5,6 +5,7 @@ const { Resend } = require('resend');
 const cors = require('cors');
 
 const app = express();
+const publicDir = path.join(__dirname, '../public');
 
 // 1. MEJORA DE SEGURIDAD: CORS configurado para tu nuevo dominio
 const corsOptions = {
@@ -87,11 +88,24 @@ app.post('/api/send-email', async (req, res) => {
 });
 
 // Serve static files from the public directory
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(publicDir));
+
+// Legal pages explicit routes (also work without .html)
+app.get(['/politicas-de-privacidad', '/politicas-de-privacidad.html'], (req, res) => {
+  res.sendFile(path.join(publicDir, 'politicas-de-privacidad.html'));
+});
+
+app.get(['/avisos-legales', '/avisos-legales.html'], (req, res) => {
+  res.sendFile(path.join(publicDir, 'avisos-legales.html'));
+});
+
+app.get(['/terminos-y-condiciones', '/terminos-y-condiciones.html'], (req, res) => {
+  res.sendFile(path.join(publicDir, 'terminos-y-condiciones.html'));
+});
 
 // Catch-all route for any other request (SPA-like or just serving index.html)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+  res.sendFile(path.join(publicDir, 'index.html'));
 });
 
 // For local development
