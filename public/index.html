@@ -27,8 +27,14 @@
   <meta property="twitter:title" content="PriSYS Solutions — Software de Gestión en Chaco, Corrientes y NEA" />
   <meta property="twitter:description" content="Sistemas para negocios en Chaco, Corrientes y NEA. Control de ventas, stock y automatización para empresas argentinas." />
   <meta property="twitter:image" content="https://prisys.com.ar/Prisys_logo.jpg" />
-  
-<link rel="icon" href="favicon.ico?v=2" sizes="any">
+
+  <link rel="preload" as="image" href="Prisys_logo.avif" type="image/avif" fetchpriority="high" />
+  <link rel="preload" as="style" href="styles.css" />
+  <style>
+    html{font-size:16px;scroll-behavior:smooth}body{margin:0;font-family:"DM Sans",sans-serif;background:#0a1628;color:#fff;overflow-x:hidden}.nav{position:fixed;top:0;left:0;right:0;z-index:1200;padding:1.2rem 0}.nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between}.logo-img{width:64px;height:64px;border-radius:50%;object-fit:cover}.hero{min-height:100vh;display:flex;align-items:center;padding:6rem 2rem 3rem;position:relative;overflow:hidden;background:#0a1628}.hero-content{position:relative;z-index:2;max-width:600px;flex:1}.hero-title{font-family:"Syne",sans-serif;font-size:clamp(3rem,6vw,5rem);line-height:1;color:#fff;margin:0 0 1rem}.hero-sub{font-size:1.1rem;line-height:1.7;color:rgba(255,255,255,.7);max-width:480px;margin:0 0 1.5rem}.hero-visual{position:relative;z-index:2;flex:1;display:flex;justify-content:center;align-items:center;padding-left:4rem}.logo-flip-card{width:min(340px,85vw);height:min(340px,85vw)}.hero-logo-icon{width:100%;height:100%;object-fit:contain}@media(max-width:768px){.hero{flex-direction:column;text-align:center;padding:6rem 1.5rem 3rem}.hero-visual{padding-left:0}.logo-flip-card{width:250px;height:250px}}
+  </style>
+
+  <link rel="icon" href="favicon.ico?v=2" sizes="any">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=2">
@@ -36,7 +42,8 @@
   <meta name="theme-color" content="#0a1628">
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   
   <script type="application/ld+json">
   {
@@ -86,11 +93,15 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="Prisys_logo.jpg" alt="PriSYS Logo" class="logo-img" />
+        <picture>
+          <source srcset="Prisys_logo.avif" type="image/avif" />
+          <source srcset="Prisys_logo.webp" type="image/webp" />
+          <img src="Prisys_logo.webp" alt="PriSYS Logo" class="logo-img" width="64" height="64" decoding="async" />
+        </picture>
       </a>
       <ul class="nav-links">
-        <li><a href="#servicios">Servicios</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
+       <li><a href="#servicios">Servicios</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#contacto" class="nav-cta">Contacto</a></li>
       </ul>
@@ -112,8 +123,8 @@
   </nav>
 
   <div class="nav-mobile" id="navMobile">
-    <a href="#servicios">Servicios</a>
     <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
     <a href="#proyectos">Proyectos</a>
     <a href="#contacto">Contacto</a>
   </div>
@@ -162,7 +173,11 @@
       <div class="logo-flip-card">
         <div class="logo-flip-inner">
           <div class="logo-flip-front">
-            <img src="Prisys_logo.jpg" alt="PriSYS Logo" class="hero-logo-icon" />
+            <picture class="hero-logo-picture">
+              <source srcset="Prisys_logo.avif" type="image/avif" />
+              <source srcset="Prisys_logo.webp" type="image/webp" />
+              <img src="Prisys_logo.webp" alt="PriSYS Logo" class="hero-logo-icon" width="520" height="520" loading="eager" fetchpriority="high" decoding="async" />
+            </picture>
           </div>
           <div class="logo-flip-back">
             <p>Creamos <strong>sistemas de gestión y software a medida</strong>. Digitalizamos empresas en Chaco y Corrientes con herramientas precisas para controlar ventas, optimizar stock y potenciar tu crecimiento.</p>
@@ -176,11 +191,11 @@
     </div>
   </section>
 
-  <!-- SERVICIOS -->
-  <section class="section services-modern" id="servicios">
+  <!-- QUE HACEMOS -->
+  <section class="section services-modern" id="soluciones">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag reveal">Nuestros Servicios</span>
+        <span class="section-tag reveal">Creamos</span>
         <h2 class="section-title reveal delay-1">Soluciones diseñadas para<br><em>el éxito de tu negocio</em></h2>
       </div>
       <div class="services-modern-grid">
@@ -194,7 +209,7 @@
           <h3 class="service-title">DISEÑO DE EXPERIENCIA</h3>
           <p class="service-desc">Interfaces intuitivas diseñadas para mejorar la navegación.</p>
         </div>
-        
+
         <!-- Card 2 (Highlighted) -->
         <div class="service-modern-card featured reveal delay-2">
           <div class="service-bg-number">02</div>
@@ -205,7 +220,7 @@
 <h3 class="service-title">SISTEMAS PARA NEGOCIOS</h3>
           <p class="service-desc">Programas para controlar ventas, facturación y stock en tiempo real, ideales para comercios en general.</p>
         </div>
-        
+
         <!-- Card 3 -->
         <div class="service-modern-card reveal delay-3">
           <div class="service-bg-number">03</div>
@@ -217,6 +232,7 @@
           <p class="service-desc">Acompañamiento continuo con mantenimiento y mejoras estratégicas constantes.</p>
         </div>
       </div>
+
     </div>
   </section>
   
@@ -263,9 +279,100 @@
       </div>
     </div>
   </section>
+
+  <!-- SERVICIOS (ANTES DE PROYECTOS) -->
+  <section class="section services-plans-section" id="servicios">
+    <div class="container">
+      <div class="services-plans-wrap reveal delay-2">
+        <div class="services-plans-header">
+          <h3>Servicios</h3>
+          <p>Elegí el alcance ideal para tu proyecto web y nosotros nos encargamos del diseño, implementación y mantenimiento.</p>
+        </div>
+
+        <div class="services-plans-grid">
+          <article class="service-plan-card">
+            <h4 class="service-plan-title">Landing Page</h4>
+            <p class="service-plan-desc">Ideal para presentar tu servicio o producto con impacto.</p>
+
+            <h5 class="service-plan-subtitle">Incluye</h5>
+            <ul class="service-plan-list">
+              <li>Diseño one-page personalizado</li>
+              <li>Formulario de contacto</li>
+              <li>Optimización SEO básica</li>
+              <li>Diseño responsive</li>
+              <li>Botones de WhatsApp</li>
+            </ul>
+
+            <a href="https://wa.me/543735475716?text=Hola%20PriSYS%2C%20me%20interesa%20el%20servicio%20de%20Landing%20Page.%20%C2%BFPodemos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="btn-primary service-plan-cta">Comenzar</a>
+          </article>
+
+          <article class="service-plan-card service-plan-card-featured">
+            <span class="service-plan-badge">Popular</span>
+            <h4 class="service-plan-title">Web + sistema</h4>
+            <p class="service-plan-desc">Para empresas que necesitan presencia profesional online.</p>
+
+            <h5 class="service-plan-subtitle">Incluye</h5>
+            <ul class="service-plan-list">
+              <li>Hasta 6 secciones</li>
+              <li>Panel de administración</li>
+              <li>Base de datos</li>
+              <li>Galería de proyectos/servicios</li>
+              <li>Formulario de contacto</li>
+              <li>SEO completo</li>
+              <li>Botones de WhatsApp</li>
+            </ul>
+
+            <a href="https://wa.me/543735475716?text=Hola%20PriSYS%2C%20me%20interesa%20el%20servicio%20de%20Web%20%2B%20Sistema.%20%C2%BFPodemos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="btn-primary service-plan-cta">Comenzar</a>
+          </article>
+
+          <article class="service-plan-card">
+            <h4 class="service-plan-title">ERP ventas y administración</h4>
+            <p class="service-plan-desc">Aplicacion web completa de administración.</p>
+
+            <h5 class="service-plan-subtitle">Incluye</h5>
+            <ul class="service-plan-list">
+              <li>Panel de administración</li>
+              <li>Base de datos</li>
+              <li>Usuarios</li>
+              <li>Carrito</li>
+              <li>Dashboard</li>
+            </ul>
+
+            <a href="https://wa.me/543735475716?text=Hola%20PriSYS%2C%20me%20interesa%20el%20servicio%20de%20ERP%20de%20Ventas%20y%20Administraci%C3%B3n.%20%C2%BFPodemos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="btn-primary service-plan-cta">Comenzar</a>
+          </article>
+
+          <article class="service-plan-card">
+            <h4 class="service-plan-title">Personalizada</h4>
+            <p class="service-plan-desc">Soluciones a medida para proyectos complejos.</p>
+
+            <h5 class="service-plan-subtitle">Incluye</h5>
+            <ul class="service-plan-list">
+              <li>Relevamiento</li>
+              <li>Arquitectura a medida</li>
+              <li>Integraciones</li>
+              <li>Funcionalidades específicas</li>
+            </ul>
+
+            <a href="https://wa.me/543735475716?text=Hola%20PriSYS%2C%20me%20interesa%20una%20soluci%C3%B3n%20personalizada.%20%C2%BFPodemos%20hablar%3F" target="_blank" rel="noopener noreferrer" class="btn-primary service-plan-cta">Solicitar información</a>
+          </article>
+        </div>
+
+        <article class="service-plan-wide-card">
+          <h4>Los mantenimientos incluyen</h4>
+          <ul class="service-plan-wide-list">
+            <li>Dominio</li>
+            <li>Hosting</li>
+            <li>Actualizaciones</li>
+            <li>Soporte</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
   
   <!-- PROYECTOS -->
   <section class="section projects" id="proyectos">
+    <div class="about-bg"></div>
     <div class="container">
       <div class="section-header">
         <span class="section-tag reveal">Proyectos</span>
@@ -275,7 +382,7 @@
         <!-- ERP VENTAS -->
         <div class="project-card reveal delay-1" data-project="erp-ventas">
           <div class="project-image-container">
-            <img src="proyectos/ERP VENTAS/image1.webp" alt="Sistema de gestión ERP para controlar ventas" class="project-main-img" loading="lazy">
+            <img src="proyectos/ERP VENTAS/image1.webp" alt="Sistema de gestión ERP para controlar ventas" class="project-main-img" loading="lazy" decoding="async" width="1280" height="720">
             <div class="project-overlay">
               <span class="project-tag">SISTEMA DE GESTIÓN</span>
               <h3>ERP de Ventas Moderno</h3>
@@ -288,7 +395,7 @@
         <!-- CARNICERÍA SISTEMA -->
         <div class="project-card reveal delay-2" data-project="carniceria">
           <div class="project-image-container">
-            <img src="proyectos/carnicera sistema/image1.webp" alt="Software a medida para gestión de carnicerías y stock" class="project-main-img" loading="lazy">
+            <img src="proyectos/carnicera sistema/image1.webp" alt="Software a medida para gestión de carnicerías y stock" class="project-main-img" loading="lazy" decoding="async" width="1280" height="720">
             <div class="project-overlay">
               <span class="project-tag">SOFTWARE A MEDIDA</span>
               <h3>Gestión de Carnicerías</h3>
@@ -301,7 +408,7 @@
         <!-- ECM CHIP -->
         <div class="project-card reveal delay-3" data-project="ecm-chip">
           <div class="project-image-container">
-            <img src="proyectos/ecm chip/image1.webp" alt="ECM Chip" class="project-main-img" loading="lazy">
+            <img src="proyectos/ecm chip/image1.webp" alt="ECM Chip" class="project-main-img" loading="lazy" decoding="async" width="1280" height="720">
             <div class="project-overlay">
               <span class="project-tag">SISTEMA TÉCNICO</span>
               <h3>ECM Chip Reprogramación</h3>
@@ -314,7 +421,7 @@
         <!-- MD ESTÉTICA -->
         <div class="project-card reveal delay-1" data-project="md-estetica">
           <div class="project-image-container">
-            <img src="proyectos/MD ESTETICA/image1.webp" alt="MD Estética" class="project-main-img" loading="lazy">
+            <img src="proyectos/MD ESTETICA/image1.webp" alt="MD Estética" class="project-main-img" loading="lazy" decoding="async" width="1280" height="720">
             <div class="project-overlay">
               <span class="project-tag">APP DE GESTIÓN</span>
               <h3>MD Estética & Salud</h3>
@@ -363,123 +470,123 @@
         <div class="clients-track">
           <div class="client-card" style="--card-color: #4CAF50;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/angiru-logo.webp" alt="Angiru Logo" class="client-logo" />
+              <img src="logo-clientes/angiru-logo.webp" alt="Angiru Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #E91E63;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/carnes-villa-angela-logo.webp" alt="Carnes Villa Angela Logo" class="client-logo" />
+              <img src="logo-clientes/carnes-villa-angela-logo.webp" alt="Carnes Villa Angela Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #832d18;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/chaco-sanitarios.webp" alt="Chaco Sanitarios Logo" class="client-logo" />
+              <img src="logo-clientes/chaco-sanitarios.webp" alt="Chaco Sanitarios Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #2196F3;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/ecm-chip-logo.webp" alt="ECM Chip Logo" class="client-logo" />
+              <img src="logo-clientes/ecm-chip-logo.webp" alt="ECM Chip Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #9C27B0;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/md-estetica-logo.webp" alt="MD Estetica Logo" class="client-logo" />
+              <img src="logo-clientes/md-estetica-logo.webp" alt="MD Estetica Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #2046af;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/ingelectric.webp" alt="Ingelectric Logo" class="client-logo" />
+              <img src="logo-clientes/ingelectric.webp" alt="Ingelectric Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #8BC34A;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/oliveras-logo.webp" alt="Oliveras Logo" class="client-logo" />
+              <img src="logo-clientes/oliveras-logo.webp" alt="Oliveras Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #5a42af;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/eugenia-polirubro.webp" alt="Eugenia Polirubro Logo" class="client-logo" />
+              <img src="logo-clientes/eugenia-polirubro.webp" alt="Eugenia Polirubro Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #00BCD4;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/optica-villa-angela-logo.webp" alt="Optica Villa Angela Logo" class="client-logo" />
+              <img src="logo-clientes/optica-villa-angela-logo.webp" alt="Optica Villa Angela Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #009688;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/sg-insumos-dentales-logo.webp" alt="SG Insumos Dentales Logo" class="client-logo" />
+              <img src="logo-clientes/sg-insumos-dentales-logo.webp" alt="SG Insumos Dentales Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #FFC107;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/umbral-gym-logo.webp" alt="Umbral Gym Logo" class="client-logo" />
+              <img src="logo-clientes/umbral-gym-logo.webp" alt="Umbral Gym Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #253596;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/lo-de-carlitos.webp" alt="Lo de Carlitos Logo" class="client-logo" />
+              <img src="logo-clientes/lo-de-carlitos.webp" alt="Lo de Carlitos Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <!-- Duplicated for infinite scroll -->
           <div class="client-card" style="--card-color: #4CAF50;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/angiru-logo.webp" alt="Angiru Logo" class="client-logo" />
+              <img src="logo-clientes/angiru-logo.webp" alt="Angiru Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #E91E63;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/carnes-villa-angela-logo.webp" alt="Carnes Villa Angela Logo" class="client-logo" />
+              <img src="logo-clientes/carnes-villa-angela-logo.webp" alt="Carnes Villa Angela Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #832d18;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/chaco-sanitarios.webp" alt="Chaco Sanitarios Logo" class="client-logo" />
+              <img src="logo-clientes/chaco-sanitarios.webp" alt="Chaco Sanitarios Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #2196F3;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/ecm-chip-logo.webp" alt="ECM Chip Logo" class="client-logo" />
+              <img src="logo-clientes/ecm-chip-logo.webp" alt="ECM Chip Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #9C27B0;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/md-estetica-logo.webp" alt="MD Estetica Logo" class="client-logo" />
+              <img src="logo-clientes/md-estetica-logo.webp" alt="MD Estetica Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #2046af;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/ingelectric.webp" alt="Ingelectric Logo" class="client-logo" />
+              <img src="logo-clientes/ingelectric.webp" alt="Ingelectric Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #8BC34A;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/oliveras-logo.webp" alt="Oliveras Logo" class="client-logo" />
+              <img src="logo-clientes/oliveras-logo.webp" alt="Oliveras Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #5a42af;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/eugenia-polirubro.webp" alt="Eugenia Polirubro Logo" class="client-logo" />
+              <img src="logo-clientes/eugenia-polirubro.webp" alt="Eugenia Polirubro Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #00BCD4;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/optica-villa-angela-logo.webp" alt="Optica Villa Angela Logo" class="client-logo" />
+              <img src="logo-clientes/optica-villa-angela-logo.webp" alt="Optica Villa Angela Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #009688;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/sg-insumos-dentales-logo.webp" alt="SG Insumos Dentales Logo" class="client-logo" />
+              <img src="logo-clientes/sg-insumos-dentales-logo.webp" alt="SG Insumos Dentales Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #FFC107;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/umbral-gym-logo.webp" alt="Umbral Gym Logo" class="client-logo" />
+              <img src="logo-clientes/umbral-gym-logo.webp" alt="Umbral Gym Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
           <div class="client-card" style="--card-color: #253596;">
             <div class="client-logo-wrapper">
-              <img src="logo-clientes/lo-de-carlitos.webp" alt="Lo de Carlitos Logo" class="client-logo" />
+              <img src="logo-clientes/lo-de-carlitos.webp" alt="Lo de Carlitos Logo" class="client-logo" loading="lazy" decoding="async" width="180" height="72" />
             </div>
           </div>
         </div>
@@ -574,7 +681,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="Prisys_logo.jpg" alt="PriSYS" class="footer-logo" />
+        <img src="Prisys_logo.webp" alt="PriSYS" class="footer-logo" width="48" height="48" loading="lazy" decoding="async" />
         <p>Ingeniería de software de alto nivel.
           Construimos el futuro digital de tu empresa.
         </p>
@@ -582,10 +689,10 @@
       <div class="footer-links">
         <div class="footer-col">
           <h5>Servicios</h5>
-          <a href="#servicios">Sistemas de Gestión</a> 
-          <a href="#servicios">Desarrollo a Medida</a>
-          <a href="#servicios">Arquitectura Cloud</a>
-          <a href="#servicios">QA & Testing</a>
+          <a href="#proyectos">Sistemas de Gestión</a> 
+          <a href="#proyectos">Desarrollo a Medida</a>
+          <a href="#proyectos">Arquitectura Cloud</a>
+          <a href="#proyectos">QA & Testing</a>
         </div>
         <div class="footer-col">
           <h5>Empresa</h5>
@@ -621,6 +728,6 @@
     </svg>
   </a>
   
-  <script src="scripts.js"></script>
+  <script src="scripts.js" defer></script>
 </body>
 </html>

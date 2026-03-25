@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const { Resend } = require('resend');
 const cors = require('cors');
+const compression = require('compression');
 
 const app = express();
 const publicDir = path.join(__dirname, '../public');
@@ -17,8 +18,11 @@ const corsOptions = {
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
+app.use(compression());
 
 app.use(express.json());
+
+const oneYearMs = 31536000000;
 
 // Initialize Resend lazily to prevent crash if API key is missing during build/init
 let resend;
@@ -88,7 +92,20 @@ app.post('/api/send-email', async (req, res) => {
 });
 
 // Serve static files from the public directory
-app.use(express.static(publicDir));
+app.use(express.static(publicDir, {
+  etag: true,
+  maxAge: oneYearMs,
+  setHeaders: (res, filePath) => {
+    const ext = path.extname(filePath).toLowerCase();
+    if (['.html'].includes(ext)) {
+      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+      return;
+    }
+    if (['.js', '.css', '.webp', '.avif', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.woff', '.woff2'].includes(ext)) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    }
+  }
+}));
 
 // Legal pages explicit routes (also work without .html)
 app.get(['/politicas-de-privacidad', '/politicas-de-privacidad.html'], (req, res) => {
