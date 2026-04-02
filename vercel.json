@@ -1,9 +1,11 @@
 {
   "version": 2,
   "rewrites": [
+    { "source": "/", "destination": "/index.html" },
     { "source": "/politicas-de-privacidad", "destination": "/politicas-de-privacidad.html" },
     { "source": "/avisos-legales", "destination": "/avisos-legales.html" },
     { "source": "/terminos-y-condiciones", "destination": "/terminos-y-condiciones.html" },
+    { "source": "/faq", "destination": "/faq.html" },
     { "source": "/api/(.*)", "destination": "/api/index.js" }
   ]
 }

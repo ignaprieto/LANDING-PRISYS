@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const offset = 80;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
+        history.pushState(null, '', href);
       }
     });
   });
