@@ -1,26 +1,31 @@
 /* Deferred interactions to reduce main-thread blocking on first paint */
 
-(function () {
+export function initDeferredEnhancements() {
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const reveals = document.querySelectorAll('.reveal');
   if (reveals.length) {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    reveals.forEach((el) => revealObserver.observe(el));
+    if (reduceMotion) {
+      reveals.forEach((el) => el.classList.add('visible'));
+    } else {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      reveals.forEach((el) => revealObserver.observe(el));
+    }
   }
 
   const counters = document.querySelectorAll('.stat-num[data-target]');
-  if (counters.length) {
+  if (counters.length && !reduceMotion) {
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
     const animateCounter = (el) => {
       const target = parseInt(el.getAttribute('data-target') || '0', 10);
@@ -70,7 +75,7 @@
     sections.forEach((s) => sectionObserver.observe(s));
   }
 
-  if (!isMobile) {
+  if (!isMobile && !reduceMotion) {
     const cursor = document.getElementById('cursor');
     const follower = document.getElementById('cursorFollower');
 
@@ -127,4 +132,4 @@
       });
     }
   }
-})();
+}

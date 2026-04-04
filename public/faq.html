@@ -3,14 +3,31 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2TGB51G7Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-S2TGB51G7Q');
-</script>
+  <script>
+    (function () {
+      var loaded = false;
+      function loadAnalytics() {
+        if (loaded) return;
+        loaded = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () { dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', 'G-S2TGB51G7Q');
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-S2TGB51G7Q';
+        document.head.appendChild(script);
+      }
+      ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (eventName) {
+        window.addEventListener(eventName, loadAnalytics, { once: true, passive: true });
+      });
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadAnalytics, { timeout: 5000 });
+      } else {
+        setTimeout(loadAnalytics, 4500);
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ | Sistemas Web, Webs Institucionales, Landing + SEO | PriSYS Solutions</title>
   <meta name="description" content="Preguntas frecuentes sobre servicios de PriSYS Solutions en Chaco, Corrientes y NEA: sistemas web a medida, webs institucionales, landing pages con SEO profesional y software de gestión." />

@@ -39,10 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navMobile = document.getElementById('navMobile');
   if (hamburger && navMobile) {
+    const syncMobileMenuA11y = (isOpen) => {
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navMobile.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    };
+
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navMobile.classList.toggle('open');
-      body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
+      const isOpen = navMobile.classList.contains('open');
+      body.style.overflow = isOpen ? 'hidden' : '';
+      syncMobileMenuA11y(isOpen);
     });
 
     navMobile.querySelectorAll('a').forEach((link) => {
@@ -50,8 +57,19 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.remove('active');
         navMobile.classList.remove('open');
         body.style.overflow = '';
+        syncMobileMenuA11y(false);
       });
     });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape' || !navMobile.classList.contains('open')) return;
+      hamburger.classList.remove('active');
+      navMobile.classList.remove('open');
+      body.style.overflow = '';
+      syncMobileMenuA11y(false);
+    });
+
+    syncMobileMenuA11y(navMobile.classList.contains('open'));
   }
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -96,10 +114,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const originalText = btn ? btn.textContent : 'Enviar';
 
       const formData = {
-        name: form.querySelector('input[placeholder="Tu nombre"]')?.value || '',
-        company: form.querySelector('input[placeholder="Tu empresa"]')?.value || '',
-        email: form.querySelector('input[placeholder="tu@empresa.com"]')?.value || '',
-        message: form.querySelector('textarea')?.value || ''
+        name: form.querySelector('input[name="name"]')?.value || '',
+        company: form.querySelector('input[name="company"]')?.value || '',
+        email: form.querySelector('input[name="email"]')?.value || '',
+        message: form.querySelector('textarea[name="message"]')?.value || ''
       };
 
       if (btn) {
@@ -134,158 +152,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const projectData = {
-    'erp-ventas': {
-      title: 'ERP de Ventas Moderno',
-      desc: 'Sistema integral de gestión de ventas, stock e inventario con reportes avanzados.',
-      images: [
-        'proyectos/ERP VENTAS/image1.webp',
-        'proyectos/ERP VENTAS/image2.webp',
-        'proyectos/ERP VENTAS/image3.webp',
-        'proyectos/ERP VENTAS/image4.webp',
-        'proyectos/ERP VENTAS/image5.webp'
-      ]
-    },
-    carniceria: {
-      title: 'Gestión de Carnicerías',
-      desc: 'Software especializado para el control de stock, pesaje y ventas en carnicerías.',
-      images: [
-        'proyectos/carnicera sistema/image1.webp',
-        'proyectos/carnicera sistema/image2.webp',
-        'proyectos/carnicera sistema/image3.webp',
-        'proyectos/carnicera sistema/image4.webp',
-        'proyectos/carnicera sistema/image5.webp',
-        'proyectos/carnicera sistema/image6.webp',
-        'proyectos/carnicera sistema/image7.webp'
-      ]
-    },
-    'ecm-chip': {
-      title: 'ECM Chip Reprogramación',
-      desc: 'Plataforma técnica para la gestión de servicios de reprogramación de ECUs y chips automotrices.',
-      images: [
-        'proyectos/ecm chip/image1.webp',
-        'proyectos/ecm chip/image2.webp',
-        'proyectos/ecm chip/image3.webp',
-        'proyectos/ecm chip/image4.webp',
-        'proyectos/ecm chip/image5.webp',
-        'proyectos/ecm chip/image6.webp',
-        'proyectos/ecm chip/image7.webp',
-        'proyectos/ecm chip/image8.webp',
-        'proyectos/ecm chip/image9.webp'
-      ]
-    },
-    'md-estetica': {
-      title: 'MD Estética & Salud',
-      desc: 'Sistema de turnos, historia clínica digital y gestión de pacientes para centros de estética.',
-      images: [
-        'proyectos/MD ESTETICA/image1.webp',
-        'proyectos/MD ESTETICA/image2.webp',
-        'proyectos/MD ESTETICA/image3.webp',
-        'proyectos/MD ESTETICA/image4.webp',
-        'proyectos/MD ESTETICA/image5.webp'
-      ]
+  let modalBootstrapPromise;
+  const loadModalFeature = () => {
+    if (!modalBootstrapPromise) {
+      modalBootstrapPromise = import('./scripts-modal.js')
+        .then((module) => module.initProjectModal())
+        .catch(() => {
+          modalBootstrapPromise = null;
+        });
     }
+    return modalBootstrapPromise;
   };
 
-  const modal = document.getElementById('projectModal');
-  if (modal) {
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDesc = document.getElementById('modalDesc');
-    const modalGallery = document.getElementById('modalGallery');
-    const modalClose = modal.querySelector('.modal-close');
-    const modalCloseBtn = modal.querySelector('.modal-close-btn');
-    const modalOverlay = modal.querySelector('.modal-overlay');
-    const galleryPrev = modal.querySelector('.gallery-nav.prev');
-    const galleryNext = modal.querySelector('.gallery-nav.next');
-    const currentImgSpan = document.getElementById('currentImg');
-    const totalImgSpan = document.getElementById('totalImg');
-
-    let currentImgIndex = 0;
-    let totalImages = 0;
-
-    const updateSlider = () => {
-      const offset = -currentImgIndex * 100;
-      modalGallery.style.transform = `translateX(${offset}%)`;
-      if (currentImgSpan) currentImgSpan.textContent = String(currentImgIndex + 1);
-      modalGallery.querySelectorAll('img').forEach((img) => img.classList.remove('zoomed'));
+  const projectCards = document.querySelectorAll('.project-card[data-project]');
+  if (projectCards.length) {
+    const onCardActivate = async (card) => {
+      const projectId = card.getAttribute('data-project');
+      if (!projectId) return;
+      await loadModalFeature();
+      window.dispatchEvent(new CustomEvent('prisys:open-project-modal', { detail: { projectId } }));
     };
 
-    const openModal = (id) => {
-      const data = projectData[id];
-      if (!data) return;
-
-      modalTitle.textContent = data.title;
-      modalDesc.textContent = data.desc;
-      modalGallery.innerHTML = '';
-      currentImgIndex = 0;
-      totalImages = data.images.length;
-      if (totalImgSpan) totalImgSpan.textContent = String(totalImages);
-
-      data.images.forEach((src, idx) => {
-        const item = document.createElement('div');
-        item.className = 'gallery-item';
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `${data.title} - ${idx + 1}`;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        img.addEventListener('click', (e) => {
-          e.stopPropagation();
-          img.classList.toggle('zoomed');
-        });
-        item.appendChild(img);
-        modalGallery.appendChild(item);
-      });
-
-      updateSlider();
-      modal.classList.add('open');
-      body.style.overflow = 'hidden';
-      modal.querySelector('.modal-body').scrollTop = 0;
-    };
-
-    const closeModal = () => {
-      modal.classList.remove('open');
-      body.style.overflow = '';
-    };
-
-    document.querySelectorAll('.project-card').forEach((card) => {
+    projectCards.forEach((card) => {
       card.addEventListener('click', () => {
-        const id = card.getAttribute('data-project');
-        openModal(id);
+        onCardActivate(card);
+      });
+
+      card.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        onCardActivate(card);
       });
     });
 
-    if (galleryPrev) {
-      galleryPrev.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentImgIndex = (currentImgIndex - 1 + totalImages) % totalImages;
-        updateSlider();
-      });
+    const projectsSection = document.getElementById('proyectos');
+    if ('IntersectionObserver' in window && projectsSection) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        loadModalFeature();
+        obs.disconnect();
+      }, { rootMargin: '320px 0px' });
+      observer.observe(projectsSection);
     }
-
-    if (galleryNext) {
-      galleryNext.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentImgIndex = (currentImgIndex + 1) % totalImages;
-        updateSlider();
-      });
-    }
-
-    modalClose?.addEventListener('click', closeModal);
-    modalCloseBtn?.addEventListener('click', closeModal);
-    modalOverlay?.addEventListener('click', closeModal);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-    });
   }
 
   const loadDeferredEnhancements = () => {
     if (window.__prisysEnhancementsLoaded) return;
     window.__prisysEnhancementsLoaded = true;
-    const script = document.createElement('script');
-    script.src = 'scripts-deferred.js';
-    script.defer = true;
-    document.body.appendChild(script);
+    import('./scripts-deferred.js')
+      .then((module) => module.initDeferredEnhancements())
+      .catch(() => {
+        window.__prisysEnhancementsLoaded = false;
+      });
   };
 
   if ('requestIdleCallback' in window) {
